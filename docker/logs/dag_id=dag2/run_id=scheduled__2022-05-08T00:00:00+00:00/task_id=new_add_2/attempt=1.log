@@ -1,0 +1,24 @@
+[2022-07-22 08:49:28,591] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: dag2.new_add_2 scheduled__2022-05-08T00:00:00+00:00 [queued]>
+[2022-07-22 08:49:28,638] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: dag2.new_add_2 scheduled__2022-05-08T00:00:00+00:00 [queued]>
+[2022-07-22 08:49:28,641] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 08:49:28,649] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2022-07-22 08:49:28,650] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 08:49:28,685] {taskinstance.py:1397} INFO - Executing <Task(_PythonDecoratedOperator): new_add_2> on 2022-05-08 00:00:00+00:00
+[2022-07-22 08:49:28,691] {standard_task_runner.py:52} INFO - Started process 2041 to run task
+[2022-07-22 08:49:28,731] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'dag2', 'new_add_2', 'scheduled__2022-05-08T00:00:00+00:00', '--job-id', '917', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_4.py', '--cfg-path', '/tmp/tmpsyf2sy74', '--error-file', '/tmp/tmpv120tv10']
+[2022-07-22 08:49:28,765] {standard_task_runner.py:80} INFO - Job 917: Subtask new_add_2
+[2022-07-22 08:49:28,951] {task_command.py:371} INFO - Running <TaskInstance: dag2.new_add_2 scheduled__2022-05-08T00:00:00+00:00 [running]> on host b51f0a1d5848
+[2022-07-22 08:49:29,217] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag2
+AIRFLOW_CTX_TASK_ID=new_add_2
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-08T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-08T00:00:00+00:00
+[2022-07-22 08:49:29,219] {logging_mixin.py:115} INFO - args: x = 3, y = 2
+[2022-07-22 08:49:29,220] {python.py:173} INFO - Done. Returned value was: 5
+[2022-07-22 08:49:29,265] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=dag2, task_id=new_add_2, execution_date=20220508T000000, start_date=20220722T084928, end_date=20220722T084929
+[2022-07-22 08:49:29,314] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-07-22 08:49:29,369] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,39 @@
+[2022-07-22 08:55:35,504] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: dag1.start scheduled__2022-05-16T00:00:00+00:00 [queued]>
+[2022-07-22 08:55:35,513] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: dag1.start scheduled__2022-05-16T00:00:00+00:00 [queued]>
+[2022-07-22 08:55:35,514] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 08:55:35,516] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2022-07-22 08:55:35,517] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 08:55:35,532] {taskinstance.py:1397} INFO - Executing <Task(_PythonVirtualenvDecoratedOperator): start> on 2022-05-16 00:00:00+00:00
+[2022-07-22 08:55:35,539] {standard_task_runner.py:52} INFO - Started process 2578 to run task
+[2022-07-22 08:55:35,542] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'dag1', 'start', 'scheduled__2022-05-16T00:00:00+00:00', '--job-id', '1027', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_4.py', '--cfg-path', '/tmp/tmpwdc0wz50', '--error-file', '/tmp/tmpj4h10fab']
+[2022-07-22 08:55:35,543] {standard_task_runner.py:80} INFO - Job 1027: Subtask start
+[2022-07-22 08:55:35,637] {task_command.py:371} INFO - Running <TaskInstance: dag1.start scheduled__2022-05-16T00:00:00+00:00 [running]> on host b51f0a1d5848
+[2022-07-22 08:55:35,772] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag1
+AIRFLOW_CTX_TASK_ID=start
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-16T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-16T00:00:00+00:00
+[2022-07-22 08:55:35,778] {process_utils.py:165} INFO - Executing cmd: /usr/local/bin/python -m virtualenv /tmp/venvm0n4sok0
+[2022-07-22 08:55:35,826] {process_utils.py:169} INFO - Output:
+[2022-07-22 08:55:45,746] {process_utils.py:173} INFO - created virtual environment CPython3.7.13.final.0-64 in 8099ms
+[2022-07-22 08:55:45,748] {process_utils.py:173} INFO -   creator CPython3Posix(dest=/tmp/venvm0n4sok0, clear=False, no_vcs_ignore=False, global=False)
+[2022-07-22 08:55:45,749] {process_utils.py:173} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/***/.local/share/virtualenv)
+[2022-07-22 08:55:45,750] {process_utils.py:173} INFO -     added seed packages: pip==22.1.2, setuptools==62.6.0, wheel==0.37.1
+[2022-07-22 08:55:45,752] {process_utils.py:173} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2022-07-22 08:55:45,889] {process_utils.py:165} INFO - Executing cmd: /tmp/venvm0n4sok0/bin/pip install -r /tmp/venvm0n4sok0/requirements.txt
+[2022-07-22 08:55:45,930] {process_utils.py:169} INFO - Output:
+[2022-07-22 08:56:37,145] {process_utils.py:173} INFO - Collecting funcsigs
+[2022-07-22 08:56:37,171] {process_utils.py:173} INFO -   Using cached funcsigs-1.0.2-py2.py3-none-any.whl (17 kB)
+[2022-07-22 08:56:37,344] {process_utils.py:173} INFO - Collecting dill
+[2022-07-22 08:56:37,375] {process_utils.py:173} INFO -   Using cached dill-0.3.5.1-py2.py3-none-any.whl (95 kB)
+[2022-07-22 08:56:37,692] {process_utils.py:173} INFO - Installing collected packages: funcsigs, dill
+[2022-07-22 08:56:38,156] {process_utils.py:173} INFO - Successfully installed dill-0.3.5.1 funcsigs-1.0.2
+[2022-07-22 08:56:38,551] {process_utils.py:173} INFO - 
+[2022-07-22 08:56:38,553] {process_utils.py:173} INFO - [notice] A new release of pip available: 22.1.2 -> 22.2
+[2022-07-22 08:56:38,555] {process_utils.py:173} INFO - [notice] To update, run: python -m pip install --upgrade pip
+[2022-07-22 08:56:39,210] {process_utils.py:165} INFO - Executing cmd: /tmp/venvm0n4sok0/bin/python /tmp/venvm0n4sok0/script.py /tmp/venvm0n4sok0/script.in /tmp/venvm0n4sok0/script.out /tmp/venvm0n4sok0/string_args.txt
+[2022-07-22 08:56:39,269] {process_utils.py:169} INFO - Output:

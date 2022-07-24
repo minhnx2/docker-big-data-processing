@@ -1,0 +1,42 @@
+[2022-07-22 08:55:36,411] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: dag1.start scheduled__2022-05-20T00:00:00+00:00 [queued]>
+[2022-07-22 08:55:36,438] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: dag1.start scheduled__2022-05-20T00:00:00+00:00 [queued]>
+[2022-07-22 08:55:36,439] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 08:55:36,440] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2022-07-22 08:55:36,441] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 08:55:36,496] {taskinstance.py:1397} INFO - Executing <Task(_PythonVirtualenvDecoratedOperator): start> on 2022-05-20 00:00:00+00:00
+[2022-07-22 08:55:36,500] {standard_task_runner.py:52} INFO - Started process 2598 to run task
+[2022-07-22 08:55:36,536] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'dag1', 'start', 'scheduled__2022-05-20T00:00:00+00:00', '--job-id', '1031', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_4.py', '--cfg-path', '/tmp/tmpyd0o11wm', '--error-file', '/tmp/tmpfjtmh6wd']
+[2022-07-22 08:55:36,538] {standard_task_runner.py:80} INFO - Job 1031: Subtask start
+[2022-07-22 08:55:36,754] {task_command.py:371} INFO - Running <TaskInstance: dag1.start scheduled__2022-05-20T00:00:00+00:00 [running]> on host b51f0a1d5848
+[2022-07-22 08:55:37,019] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag1
+AIRFLOW_CTX_TASK_ID=start
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-20T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-20T00:00:00+00:00
+[2022-07-22 08:55:37,021] {process_utils.py:165} INFO - Executing cmd: /usr/local/bin/python -m virtualenv /tmp/venvs6_x_y5x
+[2022-07-22 08:55:37,055] {process_utils.py:169} INFO - Output:
+[2022-07-22 08:55:47,430] {process_utils.py:173} INFO - created virtual environment CPython3.7.13.final.0-64 in 8951ms
+[2022-07-22 08:55:47,434] {process_utils.py:173} INFO -   creator CPython3Posix(dest=/tmp/venvs6_x_y5x, clear=False, no_vcs_ignore=False, global=False)
+[2022-07-22 08:55:47,437] {process_utils.py:173} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/***/.local/share/virtualenv)
+[2022-07-22 08:55:47,439] {process_utils.py:173} INFO -     added seed packages: pip==22.1.2, setuptools==62.6.0, wheel==0.37.1
+[2022-07-22 08:55:47,441] {process_utils.py:173} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2022-07-22 08:55:47,637] {process_utils.py:165} INFO - Executing cmd: /tmp/venvs6_x_y5x/bin/pip install -r /tmp/venvs6_x_y5x/requirements.txt
+[2022-07-22 08:55:47,727] {process_utils.py:169} INFO - Output:
+[2022-07-22 08:56:34,718] {process_utils.py:173} INFO - Collecting funcsigs
+[2022-07-22 08:56:34,726] {process_utils.py:173} INFO -   Using cached funcsigs-1.0.2-py2.py3-none-any.whl (17 kB)
+[2022-07-22 08:56:34,982] {process_utils.py:173} INFO - Collecting dill
+[2022-07-22 08:56:35,061] {process_utils.py:173} INFO -   Using cached dill-0.3.5.1-py2.py3-none-any.whl (95 kB)
+[2022-07-22 08:56:36,868] {process_utils.py:173} INFO - Installing collected packages: funcsigs, dill
+[2022-07-22 08:56:37,614] {process_utils.py:173} INFO - Successfully installed dill-0.3.5.1 funcsigs-1.0.2
+[2022-07-22 08:56:38,023] {process_utils.py:173} INFO - 
+[2022-07-22 08:56:38,024] {process_utils.py:173} INFO - [notice] A new release of pip available: 22.1.2 -> 22.2
+[2022-07-22 08:56:38,025] {process_utils.py:173} INFO - [notice] To update, run: python -m pip install --upgrade pip
+[2022-07-22 08:56:38,633] {process_utils.py:165} INFO - Executing cmd: /tmp/venvs6_x_y5x/bin/python /tmp/venvs6_x_y5x/script.py /tmp/venvs6_x_y5x/script.in /tmp/venvs6_x_y5x/script.out /tmp/venvs6_x_y5x/string_args.txt
+[2022-07-22 08:56:38,667] {process_utils.py:169} INFO - Output:
+[2022-07-22 08:56:39,339] {process_utils.py:173} INFO - args: x = 1, y = 2
+[2022-07-22 08:56:39,613] {python.py:173} INFO - Done. Returned value was: 3
+[2022-07-22 08:56:39,776] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=dag1, task_id=start, execution_date=20220520T000000, start_date=20220722T085536, end_date=20220722T085639

@@ -1,0 +1,37 @@
+[2022-07-22 08:55:35,949] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: dag1.start scheduled__2022-05-19T00:00:00+00:00 [queued]>
+[2022-07-22 08:55:35,969] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: dag1.start scheduled__2022-05-19T00:00:00+00:00 [queued]>
+[2022-07-22 08:55:35,975] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 08:55:35,979] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2022-07-22 08:55:35,980] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 08:55:36,019] {taskinstance.py:1397} INFO - Executing <Task(_PythonVirtualenvDecoratedOperator): start> on 2022-05-19 00:00:00+00:00
+[2022-07-22 08:55:36,030] {standard_task_runner.py:52} INFO - Started process 2593 to run task
+[2022-07-22 08:55:36,056] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'dag1', 'start', 'scheduled__2022-05-19T00:00:00+00:00', '--job-id', '1030', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_4.py', '--cfg-path', '/tmp/tmpagrvdj4l', '--error-file', '/tmp/tmp6d0oe1iz']
+[2022-07-22 08:55:36,059] {standard_task_runner.py:80} INFO - Job 1030: Subtask start
+[2022-07-22 08:55:36,360] {task_command.py:371} INFO - Running <TaskInstance: dag1.start scheduled__2022-05-19T00:00:00+00:00 [running]> on host b51f0a1d5848
+[2022-07-22 08:55:36,539] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag1
+AIRFLOW_CTX_TASK_ID=start
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-19T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-19T00:00:00+00:00
+[2022-07-22 08:55:36,551] {process_utils.py:165} INFO - Executing cmd: /usr/local/bin/python -m virtualenv /tmp/venv8yd0x19d
+[2022-07-22 08:55:36,598] {process_utils.py:169} INFO - Output:
+[2022-07-22 08:55:49,537] {process_utils.py:173} INFO - created virtual environment CPython3.7.13.final.0-64 in 10648ms
+[2022-07-22 08:55:49,538] {process_utils.py:173} INFO -   creator CPython3Posix(dest=/tmp/venv8yd0x19d, clear=False, no_vcs_ignore=False, global=False)
+[2022-07-22 08:55:49,541] {process_utils.py:173} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/***/.local/share/virtualenv)
+[2022-07-22 08:55:49,543] {process_utils.py:173} INFO -     added seed packages: pip==22.1.2, setuptools==62.6.0, wheel==0.37.1
+[2022-07-22 08:55:49,544] {process_utils.py:173} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2022-07-22 08:55:49,812] {process_utils.py:165} INFO - Executing cmd: /tmp/venv8yd0x19d/bin/pip install -r /tmp/venv8yd0x19d/requirements.txt
+[2022-07-22 08:55:49,865] {process_utils.py:169} INFO - Output:
+[2022-07-22 08:56:38,128] {process_utils.py:173} INFO - Collecting funcsigs
+[2022-07-22 08:56:38,143] {process_utils.py:173} INFO -   Using cached funcsigs-1.0.2-py2.py3-none-any.whl (17 kB)
+[2022-07-22 08:56:38,228] {process_utils.py:173} INFO - Collecting dill
+[2022-07-22 08:56:38,239] {process_utils.py:173} INFO -   Using cached dill-0.3.5.1-py2.py3-none-any.whl (95 kB)
+[2022-07-22 08:56:38,475] {process_utils.py:173} INFO - Installing collected packages: funcsigs, dill
+[2022-07-22 08:56:38,730] {process_utils.py:173} INFO - Successfully installed dill-0.3.5.1 funcsigs-1.0.2
+[2022-07-22 08:56:39,104] {process_utils.py:173} INFO - 
+[2022-07-22 08:56:39,106] {process_utils.py:173} INFO - [notice] A new release of pip available: 22.1.2 -> 22.2
+[2022-07-22 08:56:39,107] {process_utils.py:173} INFO - [notice] To update, run: python -m pip install --upgrade pip

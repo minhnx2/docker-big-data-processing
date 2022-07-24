@@ -1,0 +1,28 @@
+[2022-07-22 08:55:38,517] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: dag1.start scheduled__2022-05-29T00:00:00+00:00 [queued]>
+[2022-07-22 08:55:38,560] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: dag1.start scheduled__2022-05-29T00:00:00+00:00 [queued]>
+[2022-07-22 08:55:38,562] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 08:55:38,563] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2022-07-22 08:55:38,565] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 08:55:38,627] {taskinstance.py:1397} INFO - Executing <Task(_PythonVirtualenvDecoratedOperator): start> on 2022-05-29 00:00:00+00:00
+[2022-07-22 08:55:38,660] {standard_task_runner.py:52} INFO - Started process 2637 to run task
+[2022-07-22 08:55:38,705] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'dag1', 'start', 'scheduled__2022-05-29T00:00:00+00:00', '--job-id', '1040', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_4.py', '--cfg-path', '/tmp/tmp6w3xsyce', '--error-file', '/tmp/tmp77n6bibs']
+[2022-07-22 08:55:38,714] {standard_task_runner.py:80} INFO - Job 1040: Subtask start
+[2022-07-22 08:55:38,906] {task_command.py:371} INFO - Running <TaskInstance: dag1.start scheduled__2022-05-29T00:00:00+00:00 [running]> on host b51f0a1d5848
+[2022-07-22 08:55:39,326] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag1
+AIRFLOW_CTX_TASK_ID=start
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-29T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-29T00:00:00+00:00
+[2022-07-22 08:55:39,372] {process_utils.py:165} INFO - Executing cmd: /usr/local/bin/python -m virtualenv /tmp/venvyyjlxttk
+[2022-07-22 08:55:39,452] {process_utils.py:169} INFO - Output:
+[2022-07-22 08:56:13,372] {process_utils.py:173} INFO - created virtual environment CPython3.7.13.final.0-64 in 16683ms
+[2022-07-22 08:56:13,376] {process_utils.py:173} INFO -   creator CPython3Posix(dest=/tmp/venvyyjlxttk, clear=False, no_vcs_ignore=False, global=False)
+[2022-07-22 08:56:13,378] {process_utils.py:173} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/***/.local/share/virtualenv)
+[2022-07-22 08:56:13,379] {process_utils.py:173} INFO -     added seed packages: pip==22.1.2, setuptools==62.6.0, wheel==0.37.1
+[2022-07-22 08:56:13,380] {process_utils.py:173} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2022-07-22 08:56:13,435] {process_utils.py:165} INFO - Executing cmd: /tmp/venvyyjlxttk/bin/pip install -r /tmp/venvyyjlxttk/requirements.txt
+[2022-07-22 08:56:13,635] {process_utils.py:169} INFO - Output:
