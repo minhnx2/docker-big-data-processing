@@ -1,7 +1,7 @@
 version: '3'
 services:
   hadoop-namenode:
-    image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
+    image: minhnx2/hadoop-namenode:1.0
     container_name: hadoop-namenode
     environment:
       CLUSTER_NAME: "hadoop-cluster"
@@ -10,29 +10,29 @@ services:
     volumes:
       - namenode:/hadoop/dfs/name
     ports:
-      - 50070:50070
+      - 9870:9870
     healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:50070"]
+      test: ["CMD", "curl", "--fail", "http://localhost:9870"]
       interval: 15s
       timeout: 10s
       retries: 8
     restart: always
 
   hadoop-datanode:
-    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    image: minhnx2/hadoop-datanode:1.0
     container_name: hadoop-datanode
     environment:
-      SERVICE_PRECONDITION: "hadoop-namenode:50070"
+      SERVICE_PRECONDITION: "hadoop-namenode:9870"
     env_file:
       - ./hadoop-hive.env
     volumes:
       - datanode:/hadoop/dfs/data
     ports:
-      - 50075:50075
+      - 9864:9864
     depends_on:
       - hadoop-namenode        
     healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:50075"]
+      test: ["CMD", "curl", "--fail", "http://localhost:9864"]
       interval: 15s
       timeout: 10s
       retries: 8
@@ -40,44 +40,53 @@ services:
 
   hive-metastore-postgresql:
     platform: linux/amd64
-    image: bde2020/hive-metastore-postgresql:2.3.0
+    image: minhnx2/hive-metastore-postgresql:1.0
+    environment:
+      POSTGRES_USER: hive
+      POSTGRES_PASSWORD: hive      
     volumes:
       - hive-metastore-db-volume:/var/lib/postgresql/data
     expose:
       - 5432
     healthcheck:
-      test: ["CMD", "pg_isready"]
+      test: ["CMD", "pg_isready", "-U", "hive"]
       interval: 5s
       retries: 5
     restart: always
 
   hive-metastore:
-    image: bde2020/hive:2.3.2-postgresql-metastore
+    platform: linux/amd64
+    image: minhnx2/hive:1.0
     container_name: hive-metastore
     environment:
-      SERVICE_PRECONDITION: "hadoop-namenode:50070 hadoop-datanode:50075 hive-metastore-postgresql:5432"
+      SERVICE_PRECONDITION: "hadoop-namenode:9870 hadoop-datanode:9864 hive-metastore-postgresql:5432"
     env_file:
       - ./hadoop-hive.env
-    ports:
-      - 9083:9083
+    expose:
+      - 9083
     command: /opt/hive/bin/hive --service metastore
     depends_on:
       - hive-metastore-postgresql
       - hadoop-namenode
       - hadoop-datanode
 
-  # hive-server:
-  #   image: bde2020/hive:2.3.2-postgresql-metastore
-  #   container_name: hive-server
-  #   environment:
-  #     HIVE_CORE_CONF_javax_jdo_option_ConnectionURL: "jdbc:postgresql://hive-metastore/metastore"
-  #     SERVICE_PRECONDITION: "hive-metastore:9083"
-  #   env_file:
-  #     - ./hadoop-hive.env
+  hive-server:
+    image: minhnx2/hive:1.0
+    container_name: hive-server
+    environment:
+      HIVE_CORE_CONF_javax_jdo_option_ConnectionURL: "jdbc:postgresql://hive-metastore/metastore"
+      SERVICE_PRECONDITION: "hive-metastore:9083"
+    env_file:
+      - ./hadoop-hive.env
+    ports:
+      - 10000:10000
+    depends_on:
+      - hive-metastore
+
+  # trino-coordinator:
+  #   image: trinodb/trino:391
   #   ports:
-  #     - 10000:10000
-  #   depends_on:
-  #     - hive-metastore
+  #     - 8080:8080
 
 volumes:
   namenode:
