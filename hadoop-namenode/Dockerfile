@@ -1,4 +1,4 @@
-FROM minhnx2/hadoop-base:1.0
+FROM minhnx2/hadoop-base:3.2.4
 
 MAINTAINER "minhnx2"
 
