@@ -35,8 +35,8 @@ def init_hive():
 	create_new_conn(session, {
 		'conn_id': 'postgres_oltp',
 		'conn_type': 'postgres',
-		'host': 'postgres',
-		'port': 5432,
+		'host': 'host.docker.internal',
+		'port': 15432,
 		'schema': 'orders',
 		'login': 'oltp_read',
 		'password': 'oltp_read',
@@ -47,11 +47,11 @@ def init_hive():
 		'conn_type': 'hive_cli',
 		'host': 'host.docker.internal',
 		'port': 10000,
-		'login': 'admin',
-		'password': '',
+		'login': 'hive',
+		'password': 'hive',
 		'extra': json.dumps({
 			'hive_cli_params': '',
-			'auth': 'none',
+			'auth': 'noSasl',
 			'use_beeline': 'true'
 		}),
 	})

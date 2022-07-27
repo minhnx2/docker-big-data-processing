@@ -2,13 +2,15 @@ version: '3'
 services:
   hadoop-namenode:
     image: minhnx2/hadoop-namenode:3.2.4
-    container_name: hadoop-namenode
+    container_name: hadoop-namenode   
     environment:
       CLUSTER_NAME: "hadoop-cluster"
     env_file:
       - ./hadoop-hive.env
     volumes:
       - namenode:/hadoop/dfs/name
+    networks:
+      - hive-network
     ports:
       - 9870:9870
     healthcheck:
@@ -27,6 +29,8 @@ services:
       - ./hadoop-hive.env
     volumes:
       - datanode:/hadoop/dfs/data
+    networks:
+      - hive-network
     ports:
       - 9864:9864
     depends_on:
@@ -46,8 +50,10 @@ services:
       POSTGRES_PASSWORD: hive      
     volumes:
       - hive-metastore-db-volume:/var/lib/postgresql/data
-    expose:
-      - 5432
+    networks:
+      - hive-network
+    ports:
+      - 15432:5432
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "hive"]
       interval: 5s
@@ -62,6 +68,8 @@ services:
       SERVICE_PRECONDITION: "hadoop-namenode:9870 hadoop-datanode:9864 hive-metastore-postgresql:5432"
     env_file:
       - ./hadoop-hive.env
+    networks:
+      - hive-network
     expose:
       - 9083
     command: /opt/hive/bin/hive --service metastore
@@ -75,11 +83,17 @@ services:
     container_name: hive-server
     environment:
       HIVE_CORE_CONF_javax_jdo_option_ConnectionURL: "jdbc:postgresql://hive-metastore/metastore"
+      HIVE_CORE_CONF_javax_jdo_option_ConnectionUserName: "hive"
+      HIVE_CORE_CONF_javax_jdo_option_ConnectionPassword: "hive"
       SERVICE_PRECONDITION: "hive-metastore:9083"
     env_file:
       - ./hadoop-hive.env
+    networks:
+      - hive-network
     ports:
-      - 10000:10000
+      - 10000:10000      
+    volumes:
+      - ./hive-config:$HIVE_HOME/conf
     depends_on:
       - hive-metastore
 
@@ -92,3 +106,8 @@ volumes:
   namenode:
   datanode:
   hive-metastore-db-volume:
+
+networks:
+  hive-network:
+    name: hive-network
+    driver: bridge    

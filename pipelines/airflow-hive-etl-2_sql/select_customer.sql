@@ -1,0 +1,1 @@
+SELECT customer_id, cust_name from customer
